@@ -4,11 +4,13 @@
  */
 package miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author Jose
  */
-public class FormClientes extends javax.swing.JInternalFrame {
+public class FormClientes extends JInternalFrame {
 
     /**
      * Creates new form FormClientes
