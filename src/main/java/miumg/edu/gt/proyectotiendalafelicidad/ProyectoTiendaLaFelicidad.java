@@ -14,6 +14,7 @@ public class ProyectoTiendaLaFelicidad {
     public static void main(String[] args) {
 
         login();
+        System.out.println("No funciona bien");
     }
 
 //ventana login xd
