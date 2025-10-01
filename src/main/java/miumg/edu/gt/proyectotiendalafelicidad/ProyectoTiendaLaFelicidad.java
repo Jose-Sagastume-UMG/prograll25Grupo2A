@@ -4,6 +4,8 @@
 package miumg.edu.gt.proyectotiendalafelicidad;
 
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Login;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormUsuario;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormClientes;
 
 /**
  *

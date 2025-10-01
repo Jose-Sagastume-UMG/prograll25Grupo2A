@@ -4,17 +4,39 @@
  */
 package miumg.edu.gt.proyectotiendalafelicidad.igu;
 
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormClientes;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormCompraAgregar;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormEliminarModificarCompra;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormEliminarModificarProducto;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormProductoAgregar;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormReportes;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormUsuario;
+
 /**
  *
  * @author Jose
  */
 public class MenuAdministrador extends javax.swing.JFrame {
 
+    private javax.swing.JDesktopPane jDesktopPrincipal;
+
     /**
      * Creates new form Administrador
      */
     public MenuAdministrador() {
+
         initComponents();
+
+        jDesktopPrincipal = new javax.swing.JDesktopPane();
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(jDesktopPrincipal, java.awt.BorderLayout.CENTER);
+        //boton para salir xd ----------------------------------------------------
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
     }
 
     /**
@@ -27,70 +49,151 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu10 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnUsuarios = new javax.swing.JMenu();
         btnClientes = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        btnReportes = new javax.swing.JMenu();
+        btnProductos = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        btnProductoCompra = new javax.swing.JMenu();
+        btnAgregarProducto = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        btnProductoStock = new javax.swing.JMenu();
+        btnAgregarProducto1 = new javax.swing.JMenu();
+        btnEliminarModificarProducto = new javax.swing.JMenu();
+        btnSalir = new javax.swing.JMenu();
+        btnSalir2 = new javax.swing.JMenuItem();
 
         jMenu10.setText("jMenu10");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jMenuItem1.setText("jMenuItem1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jose\\Documents\\NetBeansProjects\\ProyectoTiendaLaFelicidad\\src\\main\\resources\\Imagen1.png")); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 773, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 531, Short.MAX_VALUE)
         );
 
+        jButton1.setText("jButton1");
+
         jMenu1.setText("Administracion");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
 
         btnUsuarios.setText("Usuarios");
+        btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUsuariosMouseClicked(evt);
+            }
+        });
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
         jMenu1.add(btnUsuarios);
 
         btnClientes.setText("Clientes");
+        btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnClientesMouseClicked(evt);
+            }
+        });
         jMenu1.add(btnClientes);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Reportes");
-        jMenuBar1.add(jMenu3);
+        btnReportes.setText("Reportes");
+        btnReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReportesMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnReportes);
 
-        jMenu4.setText("Productos");
+        btnProductos.setText("Productos");
 
         jMenu7.setText("ver");
 
-        jMenu9.setText("Compra");
-        jMenu7.add(jMenu9);
+        btnProductoCompra.setText("Compra");
+        btnProductoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProductoCompraMouseClicked(evt);
+            }
+        });
 
-        jMenu8.setText("Producto");
-        jMenu7.add(jMenu8);
+        btnAgregarProducto.setText("Agregar");
+        btnAgregarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProductoMouseClicked(evt);
+            }
+        });
+        btnProductoCompra.add(btnAgregarProducto);
 
-        jMenu4.add(jMenu7);
+        jMenu3.setText("Modificar/Eliminar Compra");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        btnProductoCompra.add(jMenu3);
 
-        jMenuBar1.add(jMenu4);
+        jMenu7.add(btnProductoCompra);
 
-        jMenu5.setText("Salir");
-        jMenuBar1.add(jMenu5);
+        btnProductoStock.setText("stock");
+
+        btnAgregarProducto1.setText("Agregar ");
+        btnAgregarProducto1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProducto1MouseClicked(evt);
+            }
+        });
+        btnProductoStock.add(btnAgregarProducto1);
+
+        btnEliminarModificarProducto.setText("Eliminar/Modificar Producto");
+        btnEliminarModificarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarModificarProductoMouseClicked(evt);
+            }
+        });
+        btnProductoStock.add(btnEliminarModificarProducto);
+
+        jMenu7.add(btnProductoStock);
+
+        btnProductos.add(jMenu7);
+
+        jMenuBar1.add(btnProductos);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnSalir2.setText("salir");
+        btnSalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalir2ActionPerformed(evt);
+            }
+        });
+        btnSalir.add(btnSalir2);
+
+        jMenuBar1.add(btnSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -107,6 +210,87 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormUsuario formUsuario = new FormUsuario();
+        jDesktopPrincipal.add(formUsuario);
+        formUsuario.setVisible(true);
+    }//GEN-LAST:event_btnUsuariosMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormClientes formClientes = new FormClientes();
+        jDesktopPrincipal.add(formClientes);
+        formClientes.setVisible(true);
+    }//GEN-LAST:event_btnClientesMouseClicked
+
+    private void btnReportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportesMouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormReportes formReportes = new FormReportes();
+        jDesktopPrincipal.add(formReportes);
+        formReportes.setVisible(true);
+    }//GEN-LAST:event_btnReportesMouseClicked
+
+    private void btnProductoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoCompraMouseClicked
+
+    }//GEN-LAST:event_btnProductoCompraMouseClicked
+
+    private void btnAgregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormCompraAgregar formCompraAgregar = new FormCompraAgregar();
+        jDesktopPrincipal.add(formCompraAgregar);
+        formCompraAgregar.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProductoMouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormEliminarModificarCompra formEliminarModificarCompra = new FormEliminarModificarCompra();
+        jDesktopPrincipal.add(formEliminarModificarCompra);
+        formEliminarModificarCompra.setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void btnEliminarModificarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarModificarProductoMouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormEliminarModificarProducto formEliminarModificarProducto = new FormEliminarModificarProducto();
+        jDesktopPrincipal.add(formEliminarModificarProducto);
+        formEliminarModificarProducto.setVisible(true);
+    }//GEN-LAST:event_btnEliminarModificarProductoMouseClicked
+
+    private void btnAgregarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProducto1MouseClicked
+        jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
+        jDesktopPrincipal.add(formProductoAgregar);
+        formProductoAgregar.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProducto1MouseClicked
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        new Login().setVisible(true);  // Abrir ventana de login
+        this.dispose();
+
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir2ActionPerformed
+        new Login().setVisible(true);
+        MenuAdministrador.this.dispose();
+    }//GEN-LAST:event_btnSalir2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,18 +329,24 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnAgregarProducto;
+    private javax.swing.JMenu btnAgregarProducto1;
     private javax.swing.JMenu btnClientes;
-    private javax.swing.JMenu btnUsuarios;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu btnEliminarModificarProducto;
+    private javax.swing.JMenu btnProductoCompra;
+    private javax.swing.JMenu btnProductoStock;
+    private javax.swing.JMenu btnProductos;
+    private javax.swing.JMenu btnReportes;
+    private javax.swing.JMenu btnSalir;
+    private javax.swing.JMenuItem btnSalir2;
+    public javax.swing.JMenu btnUsuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
