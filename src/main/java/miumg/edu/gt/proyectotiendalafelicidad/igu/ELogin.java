@@ -8,7 +8,6 @@ import miumg.edu.gt.proyectotiendalafelicidad.db.Usuario;
 
 public class ELogin {
 
-
     public Usuario verificarUsuario(String userName, String password) {
         EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("TiendaLaFelicidad");
         EntityManager em = emf.createEntityManager();
@@ -20,8 +19,9 @@ public class ELogin {
                     .setParameter("userName", userName)
                     .setParameter("password", password)
                     .getSingleResult();
-            
-              if (usuario != null) {
+
+      
+            if (usuario != null && usuario.getIdRol() != null && usuario.getIdRol().getIdRol() != 0) {
                 em.getTransaction().begin();
 
                 Bitacora log = new Bitacora();

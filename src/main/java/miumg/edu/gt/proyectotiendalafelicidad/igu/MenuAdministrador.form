@@ -37,6 +37,16 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="BtnHabilitar_Deshabilitar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Deshabilitar/Habilitar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtnHabilitar_DeshabilitarMouseClicked"/>
+                  </Events>
+                </Menu>
+              </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="btnClientes">
               <Properties>
@@ -88,29 +98,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuEliminarModificarCompraMouseClicked"/>
-                      </Events>
-                    </Menu>
-                  </SubComponents>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="btnProductoStock">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="stock"/>
-                  </Properties>
-                  <SubComponents>
-                    <Menu class="javax.swing.JMenu" name="btnAgregarPrecio">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Producto Venta"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAgregarPrecioMouseClicked"/>
-                      </Events>
-                    </Menu>
-                    <Menu class="javax.swing.JMenu" name="btnEliminarModificarProducto">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Eliminar/Modificar Producto"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEliminarModificarProductoMouseClicked"/>
                       </Events>
                     </Menu>
                   </SubComponents>

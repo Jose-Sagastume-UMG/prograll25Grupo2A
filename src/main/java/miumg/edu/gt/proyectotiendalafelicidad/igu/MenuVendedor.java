@@ -4,7 +4,7 @@ package miumg.edu.gt.proyectotiendalafelicidad.igu;
 
 
 
-import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.FormClientes;
+
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.FormReportes;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.FormVentas;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.Productos;
@@ -35,7 +35,6 @@ public class MenuVendedor extends javax.swing.JFrame {
         btnVender = new javax.swing.JMenu();
         btnReportes = new javax.swing.JMenu();
         btnProductos = new javax.swing.JMenu();
-        btnClientes = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         btnSalir = new javax.swing.JMenuItem();
 
@@ -100,14 +99,6 @@ public class MenuVendedor extends javax.swing.JFrame {
         });
         jMenuBar1.add(btnProductos);
 
-        btnClientes.setText("Clientes");
-        btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnClientesMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(btnClientes);
-
         jMenu4.setText("Salir");
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,14 +162,6 @@ public class MenuVendedor extends javax.swing.JFrame {
         productos.setVisible(true);
     }//GEN-LAST:event_btnProductosMouseClicked
 
-    private void btnClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseClicked
-          jPanel1.removeAll();
-        jPanel1.repaint();
-        FormClientes formClientes = new FormClientes();
-        jPanel1.add(formClientes);
-        formClientes.setVisible(true);
-    }//GEN-LAST:event_btnClientesMouseClicked
-
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu4ActionPerformed
@@ -219,7 +202,6 @@ public class MenuVendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu btnClientes;
     private javax.swing.JMenu btnProductos;
     private javax.swing.JMenu btnReportes;
     private javax.swing.JMenuItem btnSalir;

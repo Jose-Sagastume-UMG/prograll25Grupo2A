@@ -7,10 +7,9 @@ package miumg.edu.gt.proyectotiendalafelicidad.igu;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormClientes;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormCompraAgregar;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormEliminarModificarCompra;
-import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormEliminarModificarProducto;
-import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormProductoAgregar;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormReportes;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.FormUsuario;
+import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Habilitar_Deshabilitar;
 
 /**
  *
@@ -55,6 +54,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnUsuarios = new javax.swing.JMenu();
+        BtnHabilitar_Deshabilitar = new javax.swing.JMenu();
         btnClientes = new javax.swing.JMenu();
         btnReportes = new javax.swing.JMenu();
         btnProductos = new javax.swing.JMenu();
@@ -62,9 +62,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         btnProductoCompra = new javax.swing.JMenu();
         btnAgregarProducto = new javax.swing.JMenu();
         MenuEliminarModificarCompra = new javax.swing.JMenu();
-        btnProductoStock = new javax.swing.JMenu();
-        btnAgregarPrecio = new javax.swing.JMenu();
-        btnEliminarModificarProducto = new javax.swing.JMenu();
         btnSalir = new javax.swing.JMenu();
         btnSalir2 = new javax.swing.JMenuItem();
 
@@ -105,6 +102,15 @@ public class MenuAdministrador extends javax.swing.JFrame {
                 btnUsuariosActionPerformed(evt);
             }
         });
+
+        BtnHabilitar_Deshabilitar.setText("Deshabilitar/Habilitar");
+        BtnHabilitar_Deshabilitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnHabilitar_DeshabilitarMouseClicked(evt);
+            }
+        });
+        btnUsuarios.add(BtnHabilitar_Deshabilitar);
+
         jMenu1.add(btnUsuarios);
 
         btnClientes.setText("Clientes");
@@ -153,26 +159,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         btnProductoCompra.add(MenuEliminarModificarCompra);
 
         jMenu7.add(btnProductoCompra);
-
-        btnProductoStock.setText("stock");
-
-        btnAgregarPrecio.setText("Producto Venta");
-        btnAgregarPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarPrecioMouseClicked(evt);
-            }
-        });
-        btnProductoStock.add(btnAgregarPrecio);
-
-        btnEliminarModificarProducto.setText("Eliminar/Modificar Producto");
-        btnEliminarModificarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarModificarProductoMouseClicked(evt);
-            }
-        });
-        btnProductoStock.add(btnEliminarModificarProducto);
-
-        jMenu7.add(btnProductoStock);
 
         btnProductos.add(jMenu7);
 
@@ -265,22 +251,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         formEliminarModificarCompra.setVisible(true);
     }//GEN-LAST:event_MenuEliminarModificarCompraMouseClicked
 
-    private void btnEliminarModificarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarModificarProductoMouseClicked
-        jDesktopPrincipal.removeAll();
-        jDesktopPrincipal.repaint();
-        FormEliminarModificarProducto formEliminarModificarProducto = new FormEliminarModificarProducto();
-        jDesktopPrincipal.add(formEliminarModificarProducto);
-        formEliminarModificarProducto.setVisible(true);
-    }//GEN-LAST:event_btnEliminarModificarProductoMouseClicked
-
-    private void btnAgregarPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPrecioMouseClicked
-        jDesktopPrincipal.removeAll();
-        jDesktopPrincipal.repaint();
-        FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
-        jDesktopPrincipal.add(formProductoAgregar);
-        formProductoAgregar.setVisible(true);
-    }//GEN-LAST:event_btnAgregarPrecioMouseClicked
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         new Login().setVisible(true); 
         this.dispose();
@@ -291,6 +261,14 @@ public class MenuAdministrador extends javax.swing.JFrame {
        new Login().setVisible(true);
         MenuAdministrador.this.dispose();
     }//GEN-LAST:event_btnSalir2ActionPerformed
+
+    private void BtnHabilitar_DeshabilitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnHabilitar_DeshabilitarMouseClicked
+      jDesktopPrincipal.removeAll();
+        jDesktopPrincipal.repaint();
+        Habilitar_Deshabilitar habilitar_Deshabilitar = new Habilitar_Deshabilitar();
+        jDesktopPrincipal.add(habilitar_Deshabilitar);
+        habilitar_Deshabilitar.setVisible(true);
+    }//GEN-LAST:event_BtnHabilitar_DeshabilitarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -329,13 +307,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu BtnHabilitar_Deshabilitar;
     private javax.swing.JMenu MenuEliminarModificarCompra;
-    private javax.swing.JMenu btnAgregarPrecio;
     private javax.swing.JMenu btnAgregarProducto;
     private javax.swing.JMenu btnClientes;
-    private javax.swing.JMenu btnEliminarModificarProducto;
     private javax.swing.JMenu btnProductoCompra;
-    private javax.swing.JMenu btnProductoStock;
     private javax.swing.JMenu btnProductos;
     private javax.swing.JMenu btnReportes;
     private javax.swing.JMenu btnSalir;

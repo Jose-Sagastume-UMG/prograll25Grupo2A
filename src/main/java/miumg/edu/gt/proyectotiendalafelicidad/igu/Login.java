@@ -135,32 +135,46 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-         jLabel5.setText("");
-        String username = jTextField1.getText();
-        String password = new String(jPasswordField1.getPassword());
+      jLabel5.setText("");
+    String username = jTextField1.getText();
+    String password = new String(jPasswordField1.getPassword());
 
-        ELogin elogin = new ELogin();
-        Usuario usuario = elogin.verificarUsuario(username, password);
+    ELogin elogin = new ELogin();
+    Usuario usuario = elogin.verificarUsuario(username, password);
 
-        if (usuario != null) {
-            // validacion
-            String rol = usuario.getIdRol().getNombreRol();
-            if (rol.equalsIgnoreCase("Administrador")) {
-                new MenuAdministrador().setVisible(true);
-            } else {
-                new MenuVendedor().setVisible(true);
-            }
+    if (usuario != null) {
+        // Validación de rol
+        if (usuario.getIdRol() == null || usuario.getIdRol().getIdRol() == 0) {
+            jLabel5.setText("Usuario no tiene rol asignado o está deshabilitado");
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+            jTextField1.requestFocus();
+            return;
+        }
 
-            this.dispose();
+   
+        if (!usuario.getEstado()) { 
+            jLabel5.setText("Usuario está deshabilitado");
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+            jTextField1.requestFocus();
+            return;
+        }
+
+        String rol = usuario.getIdRol().getNombreRol();
+        if (rol.equalsIgnoreCase("Administrador")) {
+            new MenuAdministrador().setVisible(true);
         } else {
-            jLabel5.setText("Usuario o contraseña incorrectos");
-            
+            new MenuVendedor().setVisible(true);
+        }
+
+        this.dispose();
+    } else {
+        jLabel5.setText("Usuario o contraseña incorrectos");
         jTextField1.setText("");
         jPasswordField1.setText("");
-        
-       
         jTextField1.requestFocus();
-        }
+    }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
