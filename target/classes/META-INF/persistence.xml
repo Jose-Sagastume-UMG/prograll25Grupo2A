@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<persistence-unit name="TiendaLaFelicidad" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Usuario</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.DetalleCompra</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Rol</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Categoria</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Factura</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Cliente</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.DetalleVenta</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Bitacora</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Venta</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Compra</class>
+    <class>miumg.edu.gt.proyectotiendalafelicidad.db.Producto</class>
+    <properties>
+<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost\\TiendaLaFelicidad:1433;databaseName=TiendaLaFelicidad;trustServerCertificate=true"/>
+<property name="javax.persistence.jdbc.user" value="USR_SA2"/>
+<property name="javax.persistence.jdbc.password" value="123456789123456"/>
+<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+
+    </properties>
+  </persistence-unit>
+</persistence>
