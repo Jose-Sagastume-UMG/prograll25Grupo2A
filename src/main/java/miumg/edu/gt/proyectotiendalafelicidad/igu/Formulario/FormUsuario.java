@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario;
 
 import javax.swing.DefaultListCellRenderer;
@@ -14,15 +11,8 @@ import miumg.edu.gt.proyectotiendalafelicidad.db.Rol;
 import miumg.edu.gt.proyectotiendalafelicidad.RolJpaController;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Class.CrearUsuario;
 
-/**
- *
- * @author Jose
- */
 public class FormUsuario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormUsuario
-     */
     public FormUsuario() {
         initComponents();
         llenarComboRoles();
@@ -65,8 +55,7 @@ public class FormUsuario extends javax.swing.JInternalFrame {
         ComboBoxEstado = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -121,7 +110,7 @@ public class FormUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        txtApellidoUsuario.setText("txtApellido");
+        ComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
 
         jButton1.setText("Crear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,9 +121,12 @@ public class FormUsuario extends javax.swing.JInternalFrame {
 
         jLabel1.setText("jLabel1");
 
-        jButton2.setText("Cancelar");
-
-        jButton3.setText("Limpiar");
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -175,10 +167,8 @@ public class FormUsuario extends javax.swing.JInternalFrame {
                 .addContainerGap(161, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnLimpiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(28, 28, 28))
         );
@@ -208,8 +198,7 @@ public class FormUsuario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnLimpiar))
                 .addGap(14, 14, 14))
         );
 
@@ -246,17 +235,15 @@ public class FormUsuario extends javax.swing.JInternalFrame {
         try {
             CrearUsuario servicio = new CrearUsuario();
 
-            // Obtener datos de los campos de texto
+
             String nombre = txtNombreUsuario.getText();
             String apellido = txtApellidoUsuario.getText();
             String username = txtUsername.getText();
             String password = txtPassword.getText();
-            boolean estado = ComboBoxEstado.getSelectedIndex() == 0; 
+            boolean estado = ComboBoxEstado.getSelectedIndex() == 0; // true si "Activo"
 
-            // Obtener el rol seleccionado del ComboBox
             Rol rolSeleccionado = (Rol) ComboBoxRol.getSelectedItem();
 
-            // Crear usuario con todos los datos
             servicio.crearUsuario(nombre, apellido, username, password, estado, rolSeleccionado);
 
             jLabel1.setText("Usuario creado correctamente!");
@@ -271,38 +258,48 @@ public class FormUsuario extends javax.swing.JInternalFrame {
     private void txtNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtNombreUsuario.setText("");
+        txtApellidoUsuario.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        jLabel1.setText(""); 
+
+        ComboBoxRol.setSelectedIndex(-1);  
+        ComboBoxEstado.setSelectedIndex(-1); 
+    }//GEN-LAST:event_btnLimpiarActionPerformed
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("TiendaLaFelicidad");
 
     private void llenarComboRoles() {
 
         RolJpaController rolController = new RolJpaController(emf);
-    List<Rol> roles = rolController.findRolEntities();
+        List<Rol> roles = rolController.findRolEntities();
 
-    ComboBoxRol.removeAllItems();
-    for (Rol r : roles) {
-        ComboBoxRol.addItem(r);
-    }
-
-    ComboBoxRol.setRenderer(new DefaultListCellRenderer() {
-        @Override
-        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-            if (value instanceof Rol) {
-                Rol rol = (Rol) value;
-                setText(rol.getNombreRol());
-            }
-            return this;
+        ComboBoxRol.removeAllItems();
+        for (Rol r : roles) {
+            ComboBoxRol.addItem(r);
         }
-    });
+
+        ComboBoxRol.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof Rol) {
+                    Rol rol = (Rol) value;
+                    setText(rol.getNombreRol());
+                }
+                return this;
+            }
+        });
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxEstado;
     private javax.swing.JComboBox<Rol> ComboBoxRol;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

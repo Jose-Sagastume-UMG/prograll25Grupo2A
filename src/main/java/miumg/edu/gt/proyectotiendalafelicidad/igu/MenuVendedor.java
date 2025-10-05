@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package miumg.edu.gt.proyectotiendalafelicidad.igu;
+
 
 
 
@@ -11,20 +9,11 @@ import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.FormReport
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.FormVentas;
 import miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Vendedor.Productos;
 
-/**
- *
- * @author Jose
- */
+
 public class MenuVendedor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuVendedor
-     */
     public MenuVendedor() {
-        initComponents();
-//        jDesktopPrincipal2 = new javax.swing.JDesktopPane();
-//        jPanel1.setLayout(new java.awt.BorderLayout());
-//        jPanel1.add(jDesktopPrincipal, java.awt.BorderLayout.CENTER);
+        initComponents();    
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -120,6 +109,11 @@ public class MenuVendedor extends javax.swing.JFrame {
         jMenuBar1.add(btnClientes);
 
         jMenu4.setText("Salir");
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +142,7 @@ public class MenuVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
         new Login().setVisible(true);
         MenuVendedor.this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
@@ -183,6 +178,10 @@ public class MenuVendedor extends javax.swing.JFrame {
         jPanel1.add(formClientes);
         formClientes.setVisible(true);
     }//GEN-LAST:event_btnClientesMouseClicked
+
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4ActionPerformed
 
     /**
      * @param args the command line arguments

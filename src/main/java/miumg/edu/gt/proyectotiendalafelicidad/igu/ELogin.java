@@ -1,12 +1,14 @@
 package miumg.edu.gt.proyectotiendalafelicidad.igu;
 
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import miumg.edu.gt.proyectotiendalafelicidad.db.Bitacora;
 import miumg.edu.gt.proyectotiendalafelicidad.db.Usuario;
 
 public class ELogin {
 
-    // Método que valida usuario con JPA
+
     public Usuario verificarUsuario(String userName, String password) {
         EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("TiendaLaFelicidad");
         EntityManager em = emf.createEntityManager();
@@ -18,8 +20,19 @@ public class ELogin {
                     .setParameter("userName", userName)
                     .setParameter("password", password)
                     .getSingleResult();
+            
+              if (usuario != null) {
+                em.getTransaction().begin();
+
+                Bitacora log = new Bitacora();
+                log.setIdUsuario(usuario);
+                log.setFechaHora(new Date());
+                log.setAccion("Inicio de sesión");
+
+                em.persist(log);
+                em.getTransaction().commit();
+            }
         } catch (Exception e) {
-            // Si no encuentra usuario o hay error, devuelve null
             usuario = null;
         } finally {
             em.close();

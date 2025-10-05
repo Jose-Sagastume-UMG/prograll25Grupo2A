@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package miumg.edu.gt.proyectotiendalafelicidad.igu.Formulario.Class;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import miumg.edu.gt.proyectotiendalafelicidad.UsuarioJpaController;
 import miumg.edu.gt.proyectotiendalafelicidad.db.Rol;
 import miumg.edu.gt.proyectotiendalafelicidad.db.Usuario;
-/**
- *
- * @author Jose
- */
 
 public class CrearUsuario {
 
@@ -32,6 +25,6 @@ public class CrearUsuario {
         nuevoUsuario.setEstado(estado);
         nuevoUsuario.setIdRol(rolSeleccionado);
 
-        usuarioController.create(nuevoUsuario); // persiste en la BD
+        usuarioController.create(nuevoUsuario); 
     }
 }

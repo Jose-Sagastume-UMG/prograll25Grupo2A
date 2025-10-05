@@ -4,6 +4,7 @@
  */
 package miumg.edu.gt.proyectotiendalafelicidad.db;
 
+import java.math.BigDecimal;//lo agregre  yo para el bigDecimal de PrecioVenta
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -56,6 +57,9 @@ public class Producto implements Serializable {
     @JoinColumn(name = "idCategoria", referencedColumnName = "idCategoria")
     @ManyToOne(fetch = FetchType.LAZY)
     private Categoria idCategoria;
+    @Basic(optional = false)
+    @Column(name = "precioVenta", nullable = false, precision = 10, scale = 2)
+    private BigDecimal precioVenta;
 
     public Producto() {
     }
@@ -126,6 +130,16 @@ public class Producto implements Serializable {
         this.idCategoria = idCategoria;
     }
 
+    public BigDecimal getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(BigDecimal precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+   
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -150,5 +164,5 @@ public class Producto implements Serializable {
     public String toString() {
         return "miumg.edu.gt.proyectotiendalafelicidad.db.Producto[ idProducto=" + idProducto + " ]";
     }
-    
+
 }

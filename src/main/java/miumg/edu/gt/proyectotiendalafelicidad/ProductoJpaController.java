@@ -5,6 +5,7 @@
 package miumg.edu.gt.proyectotiendalafelicidad;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import miumg.edu.gt.proyectotiendalafelicidad.db.DetalleCompra;
 import miumg.edu.gt.proyectotiendalafelicidad.db.Producto;
 import miumg.edu.gt.proyectotiendalafelicidad.exceptions.IllegalOrphanException;
@@ -281,5 +283,38 @@ public class ProductoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public Producto crearOActualizarProducto(String nombre, String descripcion, int stock, BigDecimal precioVenta, Categoria categoria) {
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
+
+        Producto producto;
+        try {
+            producto = em.createQuery(
+                    "SELECT p FROM Producto p WHERE LOWER(p.nombre) = LOWER(:nombre) AND p.idCategoria = :cat",
+                    Producto.class)
+                    .setParameter("nombre", nombre)
+                    .setParameter("cat", categoria)
+                    .getSingleResult();
+
+            producto.setDescripcion(descripcion);
+            producto.setStock(stock);
+            producto.setPrecioVenta(precioVenta);
+            producto = em.merge(producto);
+
+        } catch (NoResultException e) {
+            producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setDescripcion(descripcion);
+            producto.setStock(stock);
+            producto.setPrecioVenta(precioVenta);
+            producto.setIdCategoria(categoria);
+            em.persist(producto);
+        }
+
+        em.getTransaction().commit();
+        em.close();
+
+        return producto;
+    }
 }

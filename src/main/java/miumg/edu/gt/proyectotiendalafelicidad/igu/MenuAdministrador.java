@@ -61,9 +61,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         btnProductoCompra = new javax.swing.JMenu();
         btnAgregarProducto = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        MenuEliminarModificarCompra = new javax.swing.JMenu();
         btnProductoStock = new javax.swing.JMenu();
-        btnAgregarProducto1 = new javax.swing.JMenu();
+        btnAgregarPrecio = new javax.swing.JMenu();
         btnEliminarModificarProducto = new javax.swing.JMenu();
         btnSalir = new javax.swing.JMenu();
         btnSalir2 = new javax.swing.JMenuItem();
@@ -144,25 +144,25 @@ public class MenuAdministrador extends javax.swing.JFrame {
         });
         btnProductoCompra.add(btnAgregarProducto);
 
-        jMenu3.setText("Modificar/Eliminar Compra");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuEliminarModificarCompra.setText("Modificar/Eliminar Compra");
+        MenuEliminarModificarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                MenuEliminarModificarCompraMouseClicked(evt);
             }
         });
-        btnProductoCompra.add(jMenu3);
+        btnProductoCompra.add(MenuEliminarModificarCompra);
 
         jMenu7.add(btnProductoCompra);
 
         btnProductoStock.setText("stock");
 
-        btnAgregarProducto1.setText("Agregar ");
-        btnAgregarProducto1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregarPrecio.setText("Producto Venta");
+        btnAgregarPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarProducto1MouseClicked(evt);
+                btnAgregarPrecioMouseClicked(evt);
             }
         });
-        btnProductoStock.add(btnAgregarProducto1);
+        btnProductoStock.add(btnAgregarPrecio);
 
         btnEliminarModificarProducto.setText("Eliminar/Modificar Producto");
         btnEliminarModificarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,13 +257,13 @@ public class MenuAdministrador extends javax.swing.JFrame {
         formCompraAgregar.setVisible(true);
     }//GEN-LAST:event_btnAgregarProductoMouseClicked
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+    private void MenuEliminarModificarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuEliminarModificarCompraMouseClicked
         jDesktopPrincipal.removeAll();
         jDesktopPrincipal.repaint();
         FormEliminarModificarCompra formEliminarModificarCompra = new FormEliminarModificarCompra();
         jDesktopPrincipal.add(formEliminarModificarCompra);
         formEliminarModificarCompra.setVisible(true);
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_MenuEliminarModificarCompraMouseClicked
 
     private void btnEliminarModificarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarModificarProductoMouseClicked
         jDesktopPrincipal.removeAll();
@@ -273,22 +273,22 @@ public class MenuAdministrador extends javax.swing.JFrame {
         formEliminarModificarProducto.setVisible(true);
     }//GEN-LAST:event_btnEliminarModificarProductoMouseClicked
 
-    private void btnAgregarProducto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProducto1MouseClicked
+    private void btnAgregarPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPrecioMouseClicked
         jDesktopPrincipal.removeAll();
         jDesktopPrincipal.repaint();
         FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
         jDesktopPrincipal.add(formProductoAgregar);
         formProductoAgregar.setVisible(true);
-    }//GEN-LAST:event_btnAgregarProducto1MouseClicked
+    }//GEN-LAST:event_btnAgregarPrecioMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        new Login().setVisible(true);  // Abrir ventana de login
+        new Login().setVisible(true); 
         this.dispose();
 
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir2ActionPerformed
-        new Login().setVisible(true);
+       new Login().setVisible(true);
         MenuAdministrador.this.dispose();
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
@@ -320,7 +320,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuAdministrador().setVisible(true);
@@ -329,8 +329,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuEliminarModificarCompra;
+    private javax.swing.JMenu btnAgregarPrecio;
     private javax.swing.JMenu btnAgregarProducto;
-    private javax.swing.JMenu btnAgregarProducto1;
     private javax.swing.JMenu btnClientes;
     private javax.swing.JMenu btnEliminarModificarProducto;
     private javax.swing.JMenu btnProductoCompra;
@@ -343,7 +344,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
